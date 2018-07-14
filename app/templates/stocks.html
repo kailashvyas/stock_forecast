@@ -1,0 +1,17 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+  <div class="jumbotron text-center">
+    <h1>Welcome to Stock Prediction</h1>
+  </div>
+
+  {% with data=formatted_data, div="chart1", date_format="%Y", title="stock price over time", company=company %}
+      {% include "chart.html" %}
+  {% endwith %}
+
+
+  {% with data=predicted_forecast, div="chart2", date_format="%d/%m", title="stock price forecast", company=company %}
+      {% include "chart.html" %}
+  {% endwith %}
+
+{% endblock %}
